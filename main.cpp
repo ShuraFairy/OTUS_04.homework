@@ -29,5 +29,5 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char const* argv[])
     controller->AddShape(std::make_unique<Square>(10, 10, 5));
     controller->ExportDocumentToFile("test.bin");	
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
