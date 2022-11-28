@@ -34,12 +34,13 @@ public:
         document->erase(document->begin() + index);
         Update();
     }
-    void setController(Controller& controller);
+    
+    void setController(std::shared_ptr<Controller> controller_);
     void Update();
 
 private:
-    std::shared_ptr<Document> document;
-    Controller* controller;
+    std::shared_ptr<Document> document;    
+    std::shared_ptr<Controller> controller;
 };
 
 

@@ -21,7 +21,9 @@ class View;
 
 class Controller {
 public:    
-    Controller(Model& model, const View& view) : model(&model), view(&view) {};
+
+    Controller(std::shared_ptr<Model> model,  std::unique_ptr<View> view) :
+        model(model), view(std::move(view)) {};
         
     void CreateNewDocument() 
     {
@@ -59,8 +61,8 @@ public:
     void Update() {
         view->Draw(model->getDocument());
     }
-private:
-    Model* model;
-    const View* view;
+private:    
+    std::shared_ptr<Model> model;       
+    std::unique_ptr<View> view;
 };
 
